@@ -1,0 +1,33 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the footer of the site/application.
+// -----------------------------------------------------------------------------
+.banner-carousel{
+    .slick-dots {
+        bottom: 60px;    
+        .slick-active{
+            background-color: white;
+            button{
+                &:before {
+                    color: transparent;
+                }
+            }        
+        }     
+        li {
+            
+            border: 1px solid white;
+            border-radius: 100%;
+            width: 10px;
+            height: 10px;
+            margin: 2px;
+            button{
+                &:before {
+                    color: transparent;
+                }
+            }     
+        }    
+        
+    
+    }
+
+
+}

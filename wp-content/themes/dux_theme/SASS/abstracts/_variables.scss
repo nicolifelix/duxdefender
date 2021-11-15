@@ -1,0 +1,35 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+/// Regular font family
+/// @type List
+$text-font-stack: 'Roboto', sans-serif;
+
+/// Code (monospace) font family
+/// @type List
+$code-font-stack: 'Roboto', sans-serif;
+
+
+$primary-color: #135ea3;
+$secondary-color: #0db2eb;
+$text-light-color: #f7f6f6;
+
+$text-color: #4a4a30;
+
+$highlight-color: #d1d1c9;
+$highlight-color-2: #105e82;
+$highlight-color-3: #11447f;
+
+
+
+$blueColorStrong: #0A4792;
+$blueColor: #31B1DE;
+$blueColor-2: #0090df;
+
+
+$pinkColorStrong: #db1181;
+$pinkColorDefault: #fd53b1;
+$pinkColor: #f545a7;
+
+$greyColor: #757474;
