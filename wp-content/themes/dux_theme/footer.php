@@ -1,13 +1,16 @@
-<footer class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="logo">
-                        <img src="./assets/img/logo-main.png" alt="" srcset="">
-                    </div>
-                        <p>copyright 2021. dux grupo. via Waldomiro bertassi, 1198 - itupeva, sp</p>
+    <footer class="container">
+        <div class="row">
+            <div class="col-12">
+                <?php
+                    $logo_footer = get_field('logo_dux');
+                ?>
+                <div class="logo">
+                    <img srcset="<?php echo $logo_footer['url']; ?>" alt="<?php echo $logo_footer['alt']; ?>" >
                 </div>
+                    <p>copyright 2021. dux grupo. via Waldomiro bertassi, 1198 - itupeva, sp</p>
             </div>
-        </footer>
+        </div>
+    </footer>
 
     <!-- jquery  e bootstrap -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -20,6 +23,7 @@
     <!-- custom js -->
     <script src="assets/js/main.js"></script>
     <script src="js/navigation.js"></script>
+    <?php wp_footer(); ?>
 
 </body>
 </html>

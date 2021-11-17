@@ -1,10 +1,10 @@
 <?php
 /**
- * legus_theme functions and definitions
+ * dux_theme functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package legus_theme
+ * @package dux_theme
  */
 
 if ( ! defined( '_S_VERSION' ) ) {
@@ -12,7 +12,7 @@ if ( ! defined( '_S_VERSION' ) ) {
 	define( '_S_VERSION', '1.0.0' );
 }
 
-if ( ! function_exists( 'legus_theme_setup' ) ) :
+if ( ! function_exists( 'dux_theme_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -20,14 +20,14 @@ if ( ! function_exists( 'legus_theme_setup' ) ) :
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
 	 */
-	function legus_theme_setup() {
+	function dux_theme_setup() {
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on legus_theme, use a find and replace
-		 * to change 'legus_theme' to the name of your theme in all the template files.
+		 * If you're building a theme based on dux_theme, use a find and replace
+		 * to change 'dux_theme' to the name of your theme in all the template files.
 		 */
-		load_theme_textdomain( 'legus_theme', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'dux_theme', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
@@ -50,7 +50,7 @@ if ( ! function_exists( 'legus_theme_setup' ) ) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(
-				'menu-1' => esc_html__( 'Primary', 'legus_theme' ),
+				'menu-1' => esc_html__( 'Primary', 'dux_theme' ),
 			)
 		);
 
@@ -75,7 +75,7 @@ if ( ! function_exists( 'legus_theme_setup' ) ) :
 		add_theme_support(
 			'custom-background',
 			apply_filters(
-				'legus_theme_custom_background_args',
+				'dux_theme_custom_background_args',
 				array(
 					'default-color' => 'ffffff',
 					'default-image' => '',
@@ -102,7 +102,7 @@ if ( ! function_exists( 'legus_theme_setup' ) ) :
 		);
 	}
 endif;
-add_action( 'after_setup_theme', 'legus_theme_setup' );
+add_action( 'after_setup_theme', 'dux_theme_setup' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -111,22 +111,22 @@ add_action( 'after_setup_theme', 'legus_theme_setup' );
  *
  * @global int $content_width
  */
-function legus_theme_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'legus_theme_content_width', 640 );
+function dux_theme_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'dux_theme_content_width', 640 );
 }
-add_action( 'after_setup_theme', 'legus_theme_content_width', 0 );
+add_action( 'after_setup_theme', 'dux_theme_content_width', 0 );
 
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function legus_theme_widgets_init() {
+function dux_theme_widgets_init() {
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Sidebar', 'legus_theme' ),
+			'name'          => esc_html__( 'Sidebar', 'dux_theme' ),
 			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here.', 'legus_theme' ),
+			'description'   => esc_html__( 'Add widgets here.', 'dux_theme' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -134,16 +134,16 @@ function legus_theme_widgets_init() {
 		)
 	);
 }
-add_action( 'widgets_init', 'legus_theme_widgets_init' );
+add_action( 'widgets_init', 'dux_theme_widgets_init' );
 
 /**
  * Enqueue scripts and styles.
  */
-// function legus_theme_scripts() {
-// 	wp_enqueue_style( 'legus_theme-style', get_stylesheet_uri(), array(), _S_VERSION );
-// 	wp_style_add_data( 'legus_theme-style', 'rtl', 'replace' );
+// function dux_theme_scripts() {
+// 	wp_enqueue_style( 'dux_theme-style', get_stylesheet_uri(), array(), _S_VERSION );
+// 	wp_style_add_data( 'dux_theme-style', 'rtl', 'replace' );
 
-// 	wp_enqueue_script( 'legus_theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+// 	wp_enqueue_script( 'dux_theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
 // 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 // 		wp_enqueue_script( 'comment-reply' );
@@ -152,7 +152,7 @@ add_action( 'widgets_init', 'legus_theme_widgets_init' );
 
 
 
-// add_action( 'wp_enqueue_scripts', 'legus_theme_scripts' );
+// add_action( 'wp_enqueue_scripts', 'dux_theme_scripts' );
 
 // /**
 //  * Implement the Custom Header feature.

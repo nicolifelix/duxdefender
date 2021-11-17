@@ -14,137 +14,93 @@
  */
 
 get_header();?>
-
-
+     <!-- Banner  -->
+    <?php if( have_rows('carousel_top') ): ?>
         <section class="duxSection-banner swiper-container lpDuxSwiper">
             <div class="swiper-wrapper">
-
-                <div class="duxElement-image-banner swiper-slide">
-                    <div class="banner-image">
-                        <picture>
-                            <source  srcset="assets/img/banner_01.png" media="(max-width: 768px)">
-                            <source  srcset="assets/img/banner_01.png">
-                            <img  class="circular-img" srcset="assets/img/banner_01.png" alt="">
-                        </picture>
-                    </div>
-                    <div class="sup-itens-banner sup-itens-banner--home_text">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="sup-text sup-text--home">
-                                        <div class="banner-title-blue"> </div>
-                                        <div class="banner-title-gray"> </div> 
+                <?php while( have_rows('carousel_top') ): the_row(); 
+                    $image = get_sub_field('imagem_carrossel');
+                    $image_mobile = get_sub_field('imagem_carrossel_mobile');
+                    $text_normal = get_sub_field('texto_normal');
+                    $text_strong = get_sub_field('texto_strong');
+                    $text_week = get_sub_field('texto_weak');
+                ?>
+                    <div class="duxElement-image-banner swiper-slide">
+                        <div class="banner-image">
+                            <picture>
+                                <source  srcset="<?php echo $image_mobile['url']; ?>" media="(max-width: 768px)">
+                                <source  srcset="<?php echo $image['url']; ?>">
+                                <img  srcset="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+                            </picture>
+                        </div>
+                        <div class="sup-itens-banner sup-itens-banner--home_text">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="sup-text sup-text--home">
+                                            <div class="banner-title-blue"> <?php echo $text_normal; ?>
+                                                <span class="banner-title-strong"> <?php echo $text_strong; ?></span> 
+                                            </div>
+                                            <div class="banner-title-gray"> 
+                                                <span class="banner-title-weak"> <?php echo $text_week; ?> </span>
+                                            </div> 
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                
-                
-                <div class="duxElement-image-banner swiper-slide">
-                    <div class="banner-image">
-                        <picture>
-                            <source  srcset="assets/img/banner_02.png" media="(max-width: 768px)">
-                            <source  srcset="assets/img/banner_02.png">
-                            <img  class="circular-img" srcset="assets/img/banner_01.png" alt="">
-                        </picture>
-                    </div>
-                    <div class="sup-itens-banner sup-itens-banner--home_text">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="sup-text sup-text--home">
-                                        <div class="banner-title-blue"> </div>
-                                        <div class="banner-title-gray"> </div> 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="duxElement-image-banner swiper-slide">
-                    <div class="banner-image">
-                        <picture>
-                            <source  srcset="assets/img/banner_03.png" media="(max-width: 768px)">
-                            <source  srcset="assets/img/banner_03.png">
-                            <img  class="circular-img" srcset="assets/img/banner_01.png" alt="">
-                        </picture>
-                    </div>
-                    <div class="sup-itens-banner sup-itens-banner--home_text">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="sup-text sup-text--home">
-                                        <div class="banner-title-blue"> </div>
-                                        <div class="banner-title-gray"> </div> 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="duxElement-image-banner swiper-slide">
-                    <div class="banner-image">
-                        <picture>
-                            <source  srcset="assets/img/banner_04.png" media="(max-width: 768px)">
-                            <source  srcset="assets/img/banner_04.png">
-                            <img  class="circular-img" srcset="assets/img/banner_01.png" alt="">
-                        </picture>
-                    </div>
-                    <div class="sup-itens-banner sup-itens-banner--home_text">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="sup-text sup-text--home">
-                                        <div class="banner-title-blue"> </div>
-                                        <div class="banner-title-gray"> </div> 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                    </div>                                                                      
+                <?php endwhile; ?>  
             </div>
+            <?php endif; ?>
         </section>
+        <!-- Banner End -->
 
         <section class="produtos-funcoes" id="produtos">
+            <div class="container-fluid">           
+                    <div class="row">
+                        <div class="col-12">
+                        <?php
+                            $title_produto = get_field('produtos_titulo');
+                        ?>
+                            <h1 class="title-doted">
+                                <?php echo $title_produto ?>
+                            </h1>
+                        </div>                
+                    </div> 
+                </div> 
+            </div> 
             <div class="wrapper">
-                <div class="row">
+                <div class="row ">
+                <?php while( have_rows('lista_produtos') ): the_row(); 
+                    $image = get_sub_field('banner_produto');
+                    $title = get_sub_field('banner_titulo');
+                    $description = get_sub_field('descricao_produtos');
+                    $btn = get_sub_field('saiba_mais');
+                    $link = get_sub_field('link_saiba_mais');
+                ?>
                     <div class="col-md-4 col-sm-12">
-                        <div class="product-option dropdown"  data-target="#item-0" data-parent="#myGroup">
-                            <img src="./assets/img/prduto-dux_01.png" alt="" srcset="">
-                            <p>
-                                Pele
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-12">
-                        <div class="product-option dropdown"  data-target="#item-1" data-parent="#myGroup">
-                            <img src="assets/" alt="" srcset="">
-                            <p>
-                                Profissional
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-12">
-                        <div class="product-option dropdown"  data-target="#item-2" data-parent="#myGroup">
-
-                            <img src="./assets/img/prduto-dux_03.png" alt="" srcset="">
-                            <p>
-                                Superfícies
-                            </p>
-                        </div>
-                    </div>
-                    
+                        <figure class="product-option dropdown hover-img"  data-target="#item-0" data-parent="#myGroup">
+                            <img  srcset="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>"> 
+                            <figcaption>
+                            <span><?php echo $description; ?></span>
+                            </figcaption>
+                        </figure>
+                        <p class="product">
+                            <?php echo $title; ?>
+                        </p>
+                        <div class="cta-little  btn-radius aos-init aos-animate" data-toggle="modal" data-target="#ctaModal" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+                                <a  data-toggle="modal" data-target="#ctaModal">
+                                <a href="<?php echo $link; ?>" target="_blank"><?php echo $btn; ?></a>
+                                <i class="shine"></i>
+                            </div>
+                    </div>   
+                    <?php endwhile ?>
                 </div>
-            </div>   
-            <div class="container">
+            </div>
+
+            <?php include  'template-parts/buttons.php' ?>
+            <!-- <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <div class="accordion-group">
@@ -229,9 +185,7 @@ get_header();?>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
-
                             <div class="product-description " id="item-1" data-parent="#myGroup">
                                 <h2 class="pd-main-title">
                                     Higienização Profissional
@@ -240,7 +194,6 @@ get_header();?>
                                 <p class="pd-main-paragraph">
                                     O Dux Defender Pro garante a assepsia idela para a pele sem ressecá-la nem causar qualquer outro tipe de dano, pelo contrário, é enriquecido com Aloe Vera, hidratando profundamente lodo na primeira aplicação.
                                 </p>
-
                                 <div class="product-item">
                                     <div class="row">
                                         <div class="col-md-2 col-sm-12">
@@ -277,9 +230,7 @@ get_header();?>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
-
                             <div class="product-description " id="item-2" data-parent="#myGroup">
                                 <h2 class="pd-main-title">
                                     Higienização de Superfícies
@@ -326,110 +277,12 @@ get_header();?>
                                         </div>
                                     </div>
                                 </div>
-                                
-                                
-                        
-
                             </div>
-
-
-
-
                         </div>
-
                     </div>
                 </div>
-            </div>
-        </section>
-       
-        <section class="duxSection-where" id="ondeUtilizar">
-            <div class="container">
-                <div class="row">          
-                    <div class="col-12">
-                        <h1 class="title-doted title-doted--new">
-                            ONDE UTILIZAR
-                        </h1>
-                    </div>
-                </div>
-                <div class="swiper swiper-util"> 
-
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="slide-circle">
-                                <div class="img-circle img-circle__off">
-                                    <img  srcset="assets/img/util/util-01.png" alt="" >
-                                </div>
-                                <div class="desc-circle-slide">
-                                    <p>
-                                        Academias
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="slide-circle">
-                                <div class="img-circle img-circle__off">
-                                    <img  srcset="assets/img/util/util-02.png" alt="" >
-                                </div>
-                                <div class="desc-circle-slide">
-                                    <p>
-                                        Escolas e escritórios
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="slide-circle">
-                                <div class="img-circle img-circle__off">
-                                    <img  srcset="assets/img/util/util-03.png" alt="" >
-                                </div>
-                                <div class="desc-circle-slide">
-                                    <p>
-                                        Hospitais e clínicas
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="slide-circle">
-                                <div class="img-circle img-circle__off">
-                                    <img  srcset="assets/img/util/util-04.png" alt="" >
-                                </div>
-                                <div class="desc-circle-slide">
-                                    <p>
-                                        Shoppings
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="arow-speaker-carousel">
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-button-next"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-sm-12">
-                       <div class="cta-default cta-default--pink btn-radius aos-init aos-animate" data-toggle="modal" data-target="#ctaModal" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
-                           <a href="https://api.whatsapp.com/send?phone=5511978591266&text=Ol%C3%A1!%20Pode%20me%20ajudar%3F" target="_blank"> <i class="fab fa-whatsapp"></i>  Fale Conosco</a>
-                           <i class="shine"></i>
-                       </div>
-                    </div>
-
-                    <div class="col-md-6 col-sm-12">
-                       <div class="cta-default btn-radius aos-init aos-animate" data-toggle="modal" data-target="#ctaModal" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
-                           <a href="https://loja.duxdefender.com.br/ " target="_blank"><i class="fas fa-shopping-cart"></i> Visite Nossa Loja</a>
-                           <i class="shine"></i>
-                       </div>
-                    </div>
-                </div>
-            </div>
-
+            </div> -->
+           
         </section>
 
         <section class="duxSection-differences bg-gradient" id="diferenciais">
@@ -519,15 +372,60 @@ get_header();?>
         </section>
         <!-- Certf  end -->
 
+        <section class="duxSection-where">
+            <div class="container-fluid">           
+                <div class="row">
+                    <div class="col-12">
+                    <?php
+                        $title_onde_utilizar = get_field('onde_utilizar_titulo');
+                    ?>
+                        <h1 class="title-doted title-doted--new">
+                            <?php echo $title_onde_utilizar ?>
+                        </h1>
+                    </div>                
+                </div> 
+            </div> 
+                <div class="swiper swiper-util"> 
+                    <div class="swiper-wrapper">
+                        <?php while( have_rows('utilizar') ): the_row(); 
+                            $icone_util = get_sub_field('icone-util');
+                            $titulo_util = get_sub_field('titulo_icone_util');
+                        ?>
+                        <div class="swiper-slide">
+                            <div class="slide-circle">
+                                <div class="img-circle img-circle__off">
+                                    <img  srcset="<?php echo $icone_util['url']; ?>" alt="<?php echo $icone_util['alt']; ?>" >
+                                </div>
+                                <div class="desc-circle-slide">
+                                    <p>
+                                        <?php echo $titulo_util; ?> 
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    <?php 
+                        endwhile;
+                    ?>
+                </div>
+                <div class="arow-speaker-carousel">
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+        </section>
+
         <section class="duxSection-testimonials">
             <div class="container">
-                <div class="row">          
+                <div class="row">
                     <div class="col-12">
+                    <?php
+                        $title_depoimentos = get_field('depoimentos_titulo');
+                    ?>
                         <h1 class="title-doted title-doted--new" id="depoimentos">
-                            Depoimentos
+                            <?php echo $title_depoimentos ?>
                         </h1>
-                    </div>
-                </div>
+                    </div>                
+                </div> 
                 <!-- Swiper -->
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
@@ -544,7 +442,7 @@ get_header();?>
                                             <img  srcset="<?php echo $foto_depo['url']; ?>" alt="<?php echo $foto_depo['alt']; ?>" >
                                         </div>
                                     </div>
-                                    <div class="col-md-9 col-sm-12">
+                                    <div class="col-md-8 col-sm-12">
                                         <div class="desc-depoimento">
                                             <div class="nome-depoimento">
                                                 <h2>
@@ -600,31 +498,7 @@ get_header();?>
                 </div>
             </div>
                   
-            <?php if( get_field('texto_botao') ): ?>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-sm-12">
-                    <?php
-                        $text_btn_1 = get_field('texto_botao_1');
-                        $link_btn_1 = get_field('link_botao_1');
-                        $text_btn_2 = get_field('texto_botao_2');
-                        $link_btn_2 = get_field('link_botao_2');
-                    ?>
-                        <div class="cta-default cta-default--pink btn-radius aos-init aos-animate" data-toggle="modal" data-target="#ctaModal" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
-                        <a  data-toggle="modal" data-target="#ctaModal"><?php echo $text_btn_1; ?><i class="fab fa-whatsapp"></i></a>
-                        <i class="shine"></i>
-                        </div>
-                    </div>
-    
-                    <div class="col-md-6 col-sm-12">
-                        <div class="cta-default btn-radius aos-init aos-animate" data-toggle="modal" data-target="#ctaModal" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
-                            <a  data-toggle="modal" data-target="#ctaModal"><?php echo $text_btn_2; ?> <i class="fas fa-shopping-cart"></i></a>
-                            <i class="shine"></i>
-                        </div>
-                    </div>
-                </div>
-            </div> 
-            <?php endif; ?>      
+            <?php include  'template-parts/buttons.php' ?>    
         </section>
          <!-- Videos  end -->
 
@@ -636,30 +510,35 @@ get_header();?>
         </section>
 
         <section class="social">
-            <?php while( have_rows('icones_redes_sociais') ): the_row(); 
-                $icone = get_sub_field('icone');
-                $link = get_sub_field('link_icone');
-            ?>
             <div class="container">
+                <?php
+                    $linkedin = get_field('url_linkedin');
+                    $Instagram = get_field('url_instagram');
+                    $Facebook = get_field('url_facebook');
+                    $Youtube = get_field('url_youtube');
+                ?>
                 <div class="row">
                     <ul>
                         <li>
-                            <a  data-toggle="modal" data-target="#ctaModal"><?php echo $icone; ?> </a>
-                            <a href="http://" target="_blank" rel="noopener noreferrer"><i class="fab fa-2x fa-linkedin"></i> </a>
+                            <a href="<?php echo $linkedin; ?>" target="_blank" rel="noopener noreferrer"><i class="fab fa-2x fa-linkedin"></i> </a>
                         </li>
                         <li>
-                            <a href="https://www.instagram.com/duxdefender" target="_blank" rel="noopener noreferrer"> <i class="fab fa-2x fa-instagram"></i> </a>
+                            <a href="<?php echo $Instagram; ?>" target="_blank" rel="noopener noreferrer"> <i class="fab fa-2x fa-instagram"></i> </a>
                         </li>
                         <li>
-                            <a href="https://www.facebook.com/duxdefender" target="_blank" rel="noopener noreferrer"> <i class="fab fa-2x fa-facebook"></i></a>
+                            <a href="<?php echo $Facebook; ?>" target="_blank" rel="noopener noreferrer"> <i class="fab fa-2x fa-facebook"></i></a>
                         </li>
                         <li>
-                            <a href="http://" target="_blank" rel="noopener noreferrer"> <i class="fab fa-2x fa-youtube"></i> </a>
+                            <a href="<?php echo $Youtube; ?>" target="_blank" rel="noopener noreferrer"> <i class="fab fa-2x fa-youtube"></i> </a>
                         </li>
                     </ul>
+                   
                 </div>
             </div>
-            <?php endwhile; ?>
+
+            <div id="voltarTopo" class="voltarTopo">
+                <a href="#topo" id="subir" class="subir"><i class="fas fa-arrow-circle-up" ></i></a>
+            </div>
         </section>
 
     <?php get_footer();

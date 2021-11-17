@@ -117,4 +117,16 @@ $(document).ready(function (){
 
 });
 
+//tooltip
+$(function () {
+	$('[data-toggle="tooltip"]').tooltip()
+})
+
+//back to top
+$(document).ready(function() {
+	$('#subir').click(function(){
+		$('html, body').animate({scrollTop:0}, 'slow');
+		return false;
+	});
+});
 
