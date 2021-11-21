@@ -4,4 +4,32 @@
 
 header{
     background-color: #f2f3f4;
+    .navbar-brand{
+        margin-right: 4rem;
+    }
+    a{
+        font-weight: 300;
+        &:hover{
+            color: $highlight-color-3;
+        }
+        &:visited{
+            color: $pinkColorDefault !important;
+        }
+    }
+}
+
+@media (max-width:768px) {
+    header{
+        ul{
+            margin: 0;
+            li{
+                padding: 5px 0;
+                border-bottom: 1px solid #d7d7d7;
+                a{
+                    color: $primary-color;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
 }

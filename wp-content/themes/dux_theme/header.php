@@ -22,51 +22,44 @@
 </head>
 <body>
     <header>
-        <div class="col-12">
-            <div class="container" id="topo">
-                <div class="row padding-menu">
-                    <?php
-                        $logo = get_field('logo');
-                    ?>
-                    <div class="col-md-2 col-sm-6">
-                        <img class="logo-header" srcset="<?php echo $logo['url']; ?>" alt="<?php echo $logo['alt']; ?>" >
-                    </div>
-                    <div class="col-md-10 col-sm-4">
-                        <nav class="navbar navbar-expand-lg navbar-light ">
-        
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                <?php
+                    $logo = get_field('logo');
+                ?>
+                <a class="navbar-brand" href="#">
+                    <img class="logo-header" srcset="<?php echo $logo['url']; ?>" alt="<?php echo $logo['alt']; ?>" >
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                            <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
-                                <ul class="navbar-nav mr-auto main-menu ">
-                                    <li class="item-menu">
-                                        <a href="https://loja.duxdefender.com.br/ " target="_blank">Loja</a>
-                                    </li>
-                                    <li class="item-menu">
-                                        <a href="https://www.duxgrupo.com.br/">Dux Grupo</a>
-                                    </li>
-                                    <li class="item-menu">
-                                        <a href="#produtos">Produtos</a>
-                                    </li>
-                                    <li class="item-menu">
-                                        <a href="#ondeUtilizar">Onde Utilizar</a>
-                                    </li>
-                                    <li class="item-menu">
-                                        <a href="#diferenciais">Diferenciais</a>
-                                    </li>
-                                    <li class="item-menu">
-                                        <a href="#certificados">Certificados</a>
-                                    </li>
-                                    <li class="item-menu">
-                                        <a href="#depoimentos">Depoimentos</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </nav> 
-                    </div>       
+                <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+                    <ul class="navbar-nav mr-auto main-menu ">
+                        <li class="item-menu">
+                            <a href="https://loja.duxdefender.com.br/ " target="_blank">Loja</a>
+                        </li>
+                        <li class="item-menu">
+                            <a href="https://www.duxgrupo.com.br/">Dux Grupo</a>
+                        </li>
+                        <li class="item-menu">
+                            <a href="#produtos">Produtos</a>
+                        </li>
+                        <li class="item-menu">
+                            <a href="#ondeUtilizar">Onde Utilizar</a>
+                        </li>
+                        <li class="item-menu">
+                            <a href="#diferenciais">Diferenciais</a>
+                        </li>
+                        <li class="item-menu">
+                            <a href="#certificados">Certificados</a>
+                        </li>
+                        <li class="item-menu">
+                            <a href="#depoimentos">Depoimentos</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </div>
+        </nav>
     </header>
 
